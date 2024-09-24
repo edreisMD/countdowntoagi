@@ -11,9 +11,7 @@ function App() {
   const currentDate = new Date();
 
   const startTimer = () => {
-    const countDownDate = new Date(
-      currentDate.getFullYear() + 1000, currentDate.getMonth(), currentDate.getDate(), 0, 0, 0
-    ).getTime();
+    const countDownDate = new Date("September 23, 2024").getTime() + (1000 * 24 * 60 * 60); // 1000 days in milliseconds
 
     timer = setInterval(() => {
       const currentTime = new Date().getTime();
@@ -48,8 +46,8 @@ function App() {
   return (
     <div className="wrapper">
       <div className="heading">
-        <h3>Countdown Till</h3>
-        <h1>{currentDate.getFullYear() + 1}</h1>
+        <h3>Countdown to</h3>
+        <h1>AGI</h1>
       </div>
       <div className="countdown">
         <div className="box">
