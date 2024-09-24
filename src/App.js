@@ -12,7 +12,7 @@ function App() {
 
   const startTimer = () => {
     const countDownDate = new Date(
-      `January 1, ${currentDate.getFullYear() + 1} 00:00:00`
+      currentDate.getFullYear() + 1000, currentDate.getMonth(), currentDate.getDate(), 0, 0, 0
     ).getTime();
 
     timer = setInterval(() => {
