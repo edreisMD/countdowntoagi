@@ -14,7 +14,8 @@
 }
 
 body {
-  background: url(new-year-background.jpg);
+  /* background: url(new-year-background.jpg); */
+  background-color: #202020;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
