@@ -11,7 +11,7 @@ function App() {
   const currentDate = new Date();
 
   const startTimer = () => {
-    const countDownDate = new Date("September 23, 2024").getTime() + (1000 * 24 * 60 * 60); // 1000 days in milliseconds
+    const countDownDate = new Date("September 23, 2024").getTime() + (1000 * 24 * 60 * 60 *1000); // 1000 days in milliseconds
 
     timer = setInterval(() => {
       const currentTime = new Date().getTime();
