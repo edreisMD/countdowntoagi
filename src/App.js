@@ -6,13 +6,12 @@ function App() {
   const [hours, setHours] = useState();
   const [minutes, setMinutes] = useState();
   const [seconds, setSeconds] = useState();
-  const [milliseconds, setMilliseconds] = useState(); // Added milliseconds state
 
   let timer = useRef();
   const currentDate = new Date();
 
   const startTimer = () => {
-    const countDownDate = new Date("September 23, 2024").getTime();
+    const countDownDate = new Date("September 23, 2024").getTime() + (1000 * 24 * 60 * 60 *1000); // 1000 days in milliseconds
 
     timer = setInterval(() => {
       const currentTime = new Date().getTime();
@@ -25,7 +24,6 @@ function App() {
         (countdownGap % (1000 * 60 * 60)) / (1000 * 60)
       );
       const secondsGap = Math.floor((countdownGap % (1000 * 60)) / 1000);
-      const millisecondsGap = Math.floor((countdownGap % 1000) / 10); // Calculate milliseconds
 
       if (countdownGap < 0) {
         clearInterval(timer.current);
@@ -34,9 +32,8 @@ function App() {
         setHours(hoursGap);
         setMinutes(minutesGap);
         setSeconds(secondsGap);
-        setMilliseconds(millisecondsGap); // Update milliseconds state
       }
-    }, 10); // Update every 10 milliseconds for better precision
+    }, 1000);
   };
 
   useEffect(() => {
@@ -51,9 +48,14 @@ function App() {
       <div className="heading">
         <h3>Countdown to</h3>
         <h1>AGI</h1>
-        <h2>{days} Days</h2> {/* Display days prominently */}
       </div>
       <div className="countdown">
+        <div className="box">
+          <span className="num" id="day-box">
+            {days}
+          </span>
+          <span className="text">Days</span>
+        </div>
         <div className="box">
           <span className="num" id="hr-box">
             {hours}
@@ -71,12 +73,6 @@ function App() {
             {seconds}
           </span>
           <span className="text">Seconds</span>
-        </div>
-        <div className="box">
-          <span className="num" id="ms-box">
-            {milliseconds}
-          </span>
-          <span className="text">Milliseconds</span>
         </div>
       </div>
     </div>
